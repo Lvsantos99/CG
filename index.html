@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Selecionar e Transformar Modelos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .menu-container {
+            width: 250px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-right: 2px solid #ccc;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu-container button, .menu-container select {
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .menu-container input[type="range"] {
+            width: 100%;
+        }
+
+        .canvas-container {
+            flex-grow: 1;
+            background-color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            width: 80%;
+            height: 80%;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu esquerdo -->
+     
+    <div class="menu-container">
+        <h3>Selecionar Modelo</h3>
+        <select id="modelSelector">
+            <option value="">-- Nenhum Modelo Selecionado --</option>
+        </select>
+            <h1>Transformações</h1>
+                <div>
+                    <label for="translateX">Mover X:</label>
+                    <input type="range" id="translateX" min="-50" max="50" value="0" />
+                    <span id="translateXValue">0</span>
+                </div>
+                <div>
+                    <label for="translateY">Mover Y:</label>
+                    <input type="range" id="translateY" min="-50" max="50" value="0" />
+                    <span id="translateYValue">0</span>
+                </div>
+                <div>
+                    <label for="translateZ">Mover Z:</label>
+                    <input type="range" id="translateZ" min="-50" max="50" value="0" />
+                    <span id="translateZValue">0</span>
+                </div>
+        </div>
+        
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <div class="model-selection">
+        <h2>Inserir Modelos</h2>
+        <div>
+            <button id="increaseTree">
+                <img src="assets/tree.jpg" alt="Árvore" width="50" height="50" />
+            </button>
+        </div>
+        <div>
+            <button id="increaseRock">
+                <img src="assets/tree.jpg" alt="Rochas" width="50" height="50" />
+            </button>
+        </div>
+        <div>
+            <button id="increaseCacto">
+                <img src="assets/tree.jpg" alt="Cacto" width="50" height="50" />
+            </button>
+        </div>
+        <div>
+            <button id="increasePlant">
+                <img src="assets/tree.jpg" alt="Planta" width="50" height="50" />
+            </button>
+        </div> 
+        
+        <h3>Config</h3>
+            <button id="saveButton">Salvar Cena</button>
+            <input type="file" id="loadButton" />
+            <div>
+                <button id="updateButton">Atualizar Todos</button>
+            </div>
+    </div>
+    
+   
+
+    <script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
+    <script src="https://webgl2fundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script src="https://webgl2fundamentals.org/webgl/resources/webgl-lessons-ui.js"></script>
+    <script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
+    <script src="parseMTL.js"></script>
+    <script src="parseOBJ.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
